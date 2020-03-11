@@ -1,0 +1,46 @@
+<?php
+	$title = 'Machine Learning';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('machinelearning/machinelearning/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Machine Learning Clustering</h1>
+					<br>
+					<h3>Introduction to Clustering</h3>
+					<p>Clustering methods are one of the most useful unsupervised ML methods. These methods are used to find similarity as well as the relationship patterns among data samples and then cluster those samples into groups having similarity based on features.</p>
+					<p>Clustering is important because it determines the intrinsic grouping among the present unlabeled data. They basically make some assumptions about data points to constitute their similarity. Each assumption will construct different but equally valid clusters.</p>
+					<p>For example, below is the diagram which shows clustering system grouped together the similar kind of data in different clusters −</p>
+					<h3>Cluster Formation Methods</h3>
+					<p>It is not necessary that clusters will be formed in spherical form. Followings are some other cluster formation methods −</p>
+					<h4>Density-based</h4>
+					<p>In these methods, the clusters are formed as the dense region. The advantage of these methods is that they have good accuracy as well as good ability to merge two clusters. Ex. Density-Based Spatial Clustering of Applications with Noise (DBSCAN), Ordering Points to identify Clustering structure (OPTICS) etc.</p>
+					<h4>Hierarchical-based</h4>
+					<p>In these methods, the clusters are formed as a tree type structure based on the hierarchy. They have two categories namely, Agglomerative (Bottom up approach) and Divisive (Top down approach). Ex. Clustering using Representatives (CURE), Balanced iterative Reducing Clustering using Hierarchies (BIRCH) etc.</p>
+					<h4>Partitioning</h4>
+					<p>In these methods, the clusters are formed by portioning the objects into k clusters. Number of clusters will be equal to the number of partitions. Ex. K-means, Clustering Large Applications based upon randomized Search (CLARANS).</p>
+					<h4>Grid</h4>
+					<p>In these methods, the clusters are formed as a grid like structure. The advantage of these methods is that all the clustering operation done on these grids are fast and independent of the number of data objects. Ex. Statistical Information Grid (STING), Clustering in Quest (CLIQUE).</p>
+					<hr>
+					<div>
+						<a href="<?= $this->url('machinelearning', ['action' => 'regression']) ?>" style="float: left;" >previous Page</a>
+						
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,45 @@
+<?php
+$title = 'Write a Review';
+$this->headTitle($title);
+?>
+<br><br><br>
+<h1 class="text-center"><?= $this->escapeHtml($title) ?></h1>
+<?php
+// This provides a default CSS class and placeholder text for the title element:
+$content = $form->get('content');
+$content->setAttribute('class', 'form-control');
+$content->setAttribute('placeholder', 'Content');
+$content->setAttribute('required','required');
+
+$course_id = $form->get('course_id');
+$course_id->setAttribute('class', 'form-control');
+$course_id->setAttribute('required','required');
+
+
+// This provides CSS classes for the submit button:
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('review', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+
+<?php // Wrap the elements in divs marked as form groups, and render the
+      // label, element, and errors separately within ?>
+<div class="form-group">
+    <?= $this->formLabel($content) ?>
+    <?= $this->formElement($content) ?>
+    <?= $this->formElementErrors()->render($content, ['class' => 'help-block']) ?>
+</div>
+<div class="form-group">
+    <?= $this->formLabel($course_id) ?>
+    <?= $this->formElement($course_id) ?>
+    <?= $this->formElementErrors()->render($course_id, ['class' => 'help-block']) ?>
+</div>
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

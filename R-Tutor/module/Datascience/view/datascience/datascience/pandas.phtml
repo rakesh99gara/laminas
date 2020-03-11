@@ -1,0 +1,61 @@
+<?php
+	$title = 'DataScience';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('dataScience/dataScience/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">DataScience Pandas</h1>
+					<br>
+					<p>Pandas is an open-source Python Library used for high-performance data manipulation and data analysis using its powerful data structures. Python with pandas is in use in a variety of academic and commercial domains, including Finance, Economics, Statistics, Advertising, Web Analytics, and more. Using Pandas, we can accomplish five typical steps in the processing and analysis of data, regardless of the origin of data — load, organize, manipulate, model, and analyse the data.Below are the some of the important features of Pandas which is used specifically for Data processing and Data analysis work.</p>
+					<h3>Key Features of Pandas</h3>		
+					<ul>
+						<li>Fast and efficient DataFrame object with default and customized indexing.</li>
+						<li>Tools for loading data into in-memory data objects from different file formats.</li>
+						<li>Data alignment and integrated handling of missing data.</li>
+						<li>Reshaping and pivoting of date sets.</li>
+						<li>Label-based slicing, indexing and subsetting of large data sets.</li>
+					</ul>	
+					<h3>Pandas deals with the following three data structures</h3>	
+					<ul>
+						<li>
+							Series
+						</li>
+						<li>
+							Data Frame
+						</li>
+					</ul>
+					<h3>Dimension & Description</h3>
+					<p>The best way to think of these data structures is that the higher dimensional data structure is a container of its lower dimensional data structure. For example, DataFrame is a container of Series, Panel is a container of DataFrame.</p>	
+					<h3>Series</h3>
+					<p>Series is a one-dimensional array like structure with homogeneous data. For example, the following series is a collection of integers 10, 23, 56, …</p>
+					<h3>Key Points of Series</h3>
+					<ul>
+						<li>Homogeneous data</li>
+						<li>Size Immutable</li>
+						<li>Values of Data Mutable</li>
+					</ul>
+					<h3>DataFrame</h3>
+					<p>DataFrame is a two-dimensional array with heterogeneous data.</p>
+					<hr>
+					<div>
+					<a href="<?= $this->url('datascience', ['action' => 'introduction']) ?>" style="float: left;" >previous Page</a>
+					<a href="<?= $this->url('datascience', ['action' => 'numpy']) ?>" style="float: right" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

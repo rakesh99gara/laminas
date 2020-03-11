@@ -1,0 +1,41 @@
+<?php
+$title = 'Add new Category';
+$this->headTitle($title);
+?>
+<?php
+// This provides a default CSS class and placeholder text for the title element:
+$category = $form->get('category');
+$category->setAttribute('class', 'form-control');
+$category->setAttribute('placeholder', 'Category ...');
+
+// This provides CSS classes for the submit button:
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('category', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+
+<div classs="add-category" style="padding: 5vh;
+	width: 40%;
+	margin-left: 45vh;
+	margin-top: 20vh;
+	background-color: #f1f4e0;
+	box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+		0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+		0 100px 80px rgba(0, 0, 0, 0.12);">
+    <h1><?= $this->escapeHtml($title) ?></h1>
+    <div class="form-group">
+        <?= $this->formLabel($category) ?>
+        <?= $this->formElement($category) ?>
+        <?= $this->formElementErrors()->render($category, ['class' => 'help-block']) ?>
+    </div>
+    <?php
+        echo $this->formSubmit($submit);
+        echo $this->formHidden($form->get('id'));
+        echo $this->form()->closeTag();
+    ?>
+</div>
+

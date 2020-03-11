@@ -1,0 +1,41 @@
+<?php
+	$title = 'Big data';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('bigdata/bigdata/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Bid Data-Data Scientist</h1>
+					<br>
+					<p>The role of a data scientist is normally associated with tasks such as predictive modeling, developing segmentation algorithms, recommender systems, A/B testing frameworks and often working with raw unstructured data.</p>
+					<p>The nature of their work demands a deep understanding of mathematics, applied statistics and programming. There are a few skills common between a data analyst and a data scientist, for example, the ability to query databases. Both analyze data, but the decision of a data scientist can have a greater impact in an organization.</p>
+					<p>Here is a set of skills a data scientist normally need to have −</p>
+					
+					<ul>
+						<li>Programming in a statistical package such as: R, Python, SAS, SPSS, or Julia</li>
+						<li>Able to clean, extract, and explore data from different sources</li>
+						<li>Deep statistical, mathematical, and computer science knowledge</li>
+						<li>Research, design, and implementation of statistical models</li>
+					</ul>
+					<p>In big data analytics, people normally confuse the role of a data scientist with that of a data architect. In reality, the difference is quite simple. A data architect defines the tools and the architecture the data would be stored at, whereas a data scientist uses this architecture. Of course, a data scientist should be able to set up new tools if needed for ad-hoc projects, but the infrastructure definition and design should not be a part of his task.</p>
+					<hr>
+					<div>
+						<a href="<?= $this->url('bigdata', ['action' => 'analyst']) ?>" style="float: left;" >previous Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

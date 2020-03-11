@@ -1,0 +1,41 @@
+<?php
+	$title = 'Big data';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('bigdata/bigdata/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Bid Data-Data Analyst</h1>
+					<br>
+					<p>A data analyst has reporting-oriented profile, having experience in extracting and analyzing data from traditional data warehouses using SQL. Their tasks are normally either on the side of data storage or in reporting general business results. Data warehousing is by no means simple, it is just different to what a data scientist does.</p>
+					<p>Many organizations struggle hard to find competent data scientists in the market. It is however a good idea to select prospective data analysts and teach them the relevant skills to become a data scientist. This is by no means a trivial task and would normally involve the person doing a master degree in a quantitative field, but it is definitely a viable option. The basic skills a competent data analyst must have are listed below −</p>
+					<ul>
+						<li>Business understanding</li>
+						<li>SQL programming</li>
+						<li>Report design and implementation</li>
+						<li>Dashboard development</li>
+					</ul>
+					<hr>
+					<div>
+						<a href="<?= $this->url('bigdata', ['action' => 'methodology']) ?>" style="float: left;" >previous Page</a>
+						<a href="<?= $this->url('bigdata', ['action' => 'scientist']) ?>" style="float: right;" >Next Page</a>
+						
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

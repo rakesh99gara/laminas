@@ -1,0 +1,56 @@
+<?php
+	$title = 'Data Structures';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('datastructures/datastructures/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Data Structures - Dynamic Programming</h1>
+					<br>
+					<p>Dynamic programming approach is similar to divide and conquer in breaking down the problem into smaller and yet smaller possible sub-problems. But unlike, divide and conquer, these sub-problems are not solved independently. Rather, results of these smaller sub-problems are remembered and used for similar or overlapping sub-problems.</p>
+					<p>Dynamic programming is used where we have problems, which can be divided into similar sub-problems, so that their results can be re-used. Mostly, these algorithms are used for optimization. Before solving the in-hand sub-problem, dynamic algorithm will try to examine the results of the previously solved sub-problems. The solutions of sub-problems are combined in order to achieve the best solution.</p>
+					<p>So we can say that −</p>
+					<ul>
+						<li>
+							The problem should be able to be divided into smaller overlapping sub-problem.
+						</li>
+						<li>
+							An optimum solution can be achieved by using an optimum solution of smaller sub-problems.
+						</li>
+						<li>
+							Dynamic algorithms use Memoization.
+						</li>
+					</ul>
+					<h3>Comparison</h3>
+					<p>In contrast to greedy algorithms, where local optimization is addressed, dynamic algorithms are motivated for an overall optimization of the problem.</p>
+					<p>In contrast to divide and conquer algorithms, where solutions are combined to achieve an overall solution, dynamic algorithms use the output of a smaller sub-problem and then try to optimize a bigger sub-problem. Dynamic algorithms use Memoization to remember the output of already solved sub-problems.</p>
+					<h3>Example</h3>
+					<ul>
+						<li>Fibonacci number series</li>
+						<li>Knapsack problem</li>
+						<li>Tower of Hanoi</li>
+						<li>All pair shortest path by Floyd-Warshall</li>
+						<li>Shortest path by Dijkstra</li>
+					</ul>
+					<p>Dynamic programming can be used in both top-down and bottom-up manner. And of course, most of the times, referring to the previous solution output is cheaper than recomputing in terms of CPU cycles.</p>
+					<hr>
+					<div>
+						<a href="<?= $this->url('datastructures', ['action' => 'divideandconquer']) ?>" style="float: left;" >previous Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<?php
+	$title = 'Deep Learning';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('deeplearning/deeplearning/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Artificial Neural Networks </h1>
+					<br>
+					<p>The Artificial Neural Network, or just neural network for short, is not a new idea. It has been around for about 80 years.</p>
+					<p>It was not until 2011, when Deep Neural Networks became popular with the use of new techniques, huge dataset availability, and powerful computers.</p>
+					<p>A neural network mimics a neuron, which has dendrites, a nucleus, axon, and terminal axon.</p>
+					<p>For a network, we need two neurons. These neurons transfer information via synapse between the dendrites of one and the terminal axon of another.</p>
+					<h3>About an artificial neural network</h3>
+					<p>The circles are neurons or nodes, with their functions on the data and the lines/edges connecting them are the weights/information being passed along.</p>
+					<p>Each column is a layer. The first layer of your data is the input layer. Then, all the layers between the input layer and the output layer are the hidden layers.</p>
+					<p>If you have one or a few hidden layers, then you have a shallow neural network. If you have many hidden layers, then you have a deep neural network.</p>
+					<p>In this model, you have input data, you weight it, and pass it through the function in the neuron that is called threshold function or activation function.</p>
+					<p>Basically, it is the sum of all of the values after comparing it with a certain value. If you fire a signal, then the result is (1) out, or nothing is fired out, then (0). That is then weighted and passed along to the next neuron, and the same sort of function is run.</p>
+					<p>In a typical "feed forward", the most basic type of neural network, you have your information pass straight through the network you created, and you compare the output to what you hoped the output would have been using your sample data.</p>
+					<p>From here, you need to adjust the weights to help you get your output to match your desired output.The act of sending data straight through a neural network is called a feed forward neural network.Our data goes from input, to the layers, in order, then to the output.When we go backwards and begin adjusting weights to minimize loss/cost, this is called back propagation.</p>
+					<p>This is an optimization problem. With the neural network, in real practice, we have to deal with hundreds of thousands of variables, or millions, or more.</p>
+					<p>The first solution was to use stochastic gradient descent as optimization method. Now, there are options like AdaGrad, Adam Optimizer and so on. Either way, this is a massive computational operation. That is why Neural Networks were mostly left on the shelf for over half a century. It was only very recently that we even had the power and architecture in our machines to even consider doing these operations, and the properly sized datasets to match.</p>
+					<p>For simple classification tasks, the neural network is relatively close in performance to other simple algorithms like K Nearest Neighbors. The real utility of neural networks is realized when we have much larger data, and much more complex questions, both of which outperform other machine learning models.</p>
+					<hr>
+					<div>
+						<a href="<?= $this->url('deeplearning', ['action' => 'introduction']) ?>" style="float: left;" >previous Page</a>
+						<a href="<?= $this->url('deeplearning', ['action' => 'deepnn']) ?>" style="float: right;" >Next Page</a>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

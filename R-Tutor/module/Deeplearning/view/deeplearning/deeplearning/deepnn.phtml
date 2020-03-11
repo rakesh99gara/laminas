@@ -1,0 +1,49 @@
+<?php
+	$title = 'Deep Learning';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('deeplearning/deeplearning/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Deep Neural Networks</h1>
+					<br>
+					<p>A deep neural network (DNN) is an ANN with multiple hidden layers between the input and output layers. Similar to shallow ANNs, DNNs can model complex non-linear relationships.</p>
+					<p>The main purpose of a neural network is to receive a set of inputs, perform progressively complex calculations on them, and give output to solve real world problems like classification. We restrict ourselves to feed forward neural networks.</p>
+					<p>We have an input, an output, and a flow of sequential data in a deep network.</p>
+					<p>Neural networks are widely used in supervised learning and reinforcement learning problems. These networks are based on a set of layers connected to each other.</p>
+					<p>In deep learning, the number of hidden layers, mostly non-linear, can be large; say about 1000 layers.DL models produce much better results than normal ML networks.We mostly use the gradient descent method for optimizing the network and minimising the loss function.</p>
+					<p>We can use the Imagenet, a repository of millions of digital images to classify a dataset into categories like cats and dogs. DL nets are increasingly used for dynamic images apart from static ones and for time series and text analysis.</p>
+					<p>Training the data sets forms an important part of Deep Learning models. In addition, Backpropagation is the main algorithm in training DL models.DL deals with training large neural networks with complex input output transformations.</p>
+					<p>One example of DL is the mapping of a photo to the name of the person(s) in photo as they do on social networks and describing a picture with a phrase is another recent application of DL.</p>
+					<p>Neural networks are functions that have inputs like x1,x2,x3…that are transformed to outputs like z1,z2,z3 and so on in two (shallow networks) or several intermediate operations also called layers (deep networks).</p>
+					<p>The weights and biases change from layer to layer. ‘w’ and ‘v’ are the weights or synapses of layers of the neural networks.The best use case of deep learning is the supervised learning problem.Here,we have large set of data inputs with a desired set of outputs.</p>
+					<p>Here we apply back propagation algorithm to get correct output prediction.The most basic data set of deep learning is the MNIST, a dataset of handwritten digits.We can train deep a Convolutional Neural Network with Keras to classify images of handwritten digits from this dataset.</p>
+					<p>The firing or activation of a neural net classifier produces a score. For example,to classify patients as sick and healthy,we consider parameters such as height, weight and body temperature, blood pressure etc.</p>
+					<p>A high score means patient is sick and a low score means he is healthy.Each node in output and hidden layers has its own classifiers. The input layer takes inputs and passes on its scores to the next hidden layer for further activation and this goes on till the output is reached.This progress from input to output from left to right in the forward direction is called forward propagation.</p>
+					<h3>Deep Nets and Shallow Nets</h3>
+					<p>There is no clear threshold of depth that divides shallow learning from deep learning; but it is mostly agreed that for deep learning which has multiple non-linear layers, CAP must be greater than two.</p>
+					<p>Basic node in a neural net is a perception mimicking a neuron in a biological neural network. Then we have multi-layered Perception or MLP. Each set of inputs is modified by a set of weights and biases; each edge has a unique weight and each node has a unique bias.</p>
+					<p>The prediction accuracy of a neural net depends on its weights and biases.The process of improving the accuracy of neural network is called training. The output from a forward prop net is compared to that value which is known to be correct.The cost function or the loss function is the difference between the generated output and the actual output.The point of training is to make the cost of training as small as possible across millions of training examples.To do this, the network tweaks the weights and biases until the prediction matches the correct output.</p>
+					<hr>
+					<div>
+						<a href="<?= $this->url('deeplearning', ['action' => 'ann']) ?>" style="float: left;" >previous Page</a>
+						<a href="<?= $this->url('deeplearning', ['action' => 'graphs']) ?>" style="float: right;" >Next Page</a>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

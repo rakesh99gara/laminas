@@ -1,0 +1,28 @@
+<?php
+
+
+$title = 'My reviews';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('review', ['action' => 'add']) ?>">Add new review</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Content</th>
+    <th>Course ID</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($reviews as $review) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($review->content) ?></td>
+        <td><?= $this->escapeHtml($review->course_id) ?></td>
+        <td>
+            <a href="<?= $this->url('review', ['action' => 'edit', 'id' => $review->id]) ?>">Edit</a>
+            <a href="<?= $this->url('review', ['action' => 'delete', 'id' => $review->id]) ?>">Delete</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>

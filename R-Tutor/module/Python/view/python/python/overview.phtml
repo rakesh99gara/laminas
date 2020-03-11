@@ -1,0 +1,58 @@
+<?php
+	$title = 'Python';
+	$this->headTitle($title);
+?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('python/python/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Python - Overview</h1>
+					<br>
+					<p>Python is a high-level, interpreted, interactive and object-oriented scripting language. Python is designed to be highly readable. It uses English keywords frequently where as other languages use punctuation, and it has fewer syntactical constructions than other languages.</p>
+					<ul>
+						<li><b>Python is Interpreted −</b> Python is processed at runtime by the interpreter. You do not need to compile your program before executing it. This is similar to PERL and PHP.</li>
+						<li><b>Python is Interactive −</b> You can actually sit at a Python prompt and interact with the interpreter directly to write your programs.</li>
+						<li><b>Python is Object-Oriented −</b> Python supports Object-Oriented style or technique of programming that encapsulates code within objects.</li>
+						<li><b>Python is a Beginner's Language −</b> Python is a great language for the beginner-level programmers and supports the development of a wide range of applications from simple text processing to WWW browsers to games.</li>
+					</ul>
+					<h3>History of Python</h3>
+					<p>
+						Python was developed by Guido van Rossum in the late eighties and early nineties at the National Research Institute for Mathematics and Computer Science in the Netherlands.
+					</p>
+					<p>
+						Python is derived from many other languages, including ABC, Modula-3, C, C++, Algol-68, SmallTalk, and Unix shell and other scripting languages.
+					</p>
+					<p>
+						Python is copyrighted. Like Perl, Python source code is now available under the GNU General Public License (GPL).
+					</p>
+					<p>
+						Python is now maintained by a core development team at the institute, although Guido van Rossum still holds a vital role in directing its progress.
+					</p>
+					<h3>Python Features</h3>
+					<ul>
+						<li><b>Easy-to-learn −</b> Python has few keywords, simple structure, and a clearly defined syntax. This allows the student to pick up the language quickly.</li>
+						<li><b>Easy-to-read −</b> Python code is more clearly defined and visible to the eyes.</li>
+						<li><b>Easy-to-maintain −</b> Python's source code is fairly easy-to-maintain.</li>
+						<li><b>A broad standard library −</b> Python's bulk of the library is very portable and cross-platform compatible on UNIX, Windows, and Macintosh.</li>
+						<li><b>Interactive Mode −</b> Python has support for an interactive mode which allows interactive testing and debugging of snippets of code.</li>
+					</ul>
+					<hr>
+					<div>
+					<a href="<?= $this->url('python', ['action' => 'home']) ?>" style="float: left" >Previous Page</a>
+					<a href="<?= $this->url('python', ['action' => 'basicsyntax']) ?>" style="float: right" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

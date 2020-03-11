@@ -1,0 +1,43 @@
+<?php
+	$title = 'DataScience';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('dataScience/dataScience/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">DataScience Numpy</h1>
+					<br>
+					<p>NumPy is a Python package which stands for 'Numerical Python'. It is a library consisting of multidimensional array objects and a collection of routines for processing of array.</p>
+					<h3>Operations using NumPy</h3>		
+					<ul>
+						<li>Mathematical and logical operations on arrays.</li>
+						<li>Fourier transforms and routines for shape manipulation.</li>
+						<li>Operations related to linear algebra. NumPy has in-built functions for linear algebra and random number generation.</li>
+					</ul>	
+					<h3>NumPy – A Replacement for MatLab</h3>	
+					<p>NumPy is often used along with packages like SciPy (Scientific Python) and Mat−plotlib (plotting library). This combination is widely used as a replacement for MatLab, a popular platform for technical computing. However, Python alternative to MatLab is now seen as a more modern and complete programming language.It is open source, which is an added advantage of NumPy.</p>
+					<h3>ndarray Object</h3>
+					<p>The most important object defined in NumPy is an N-dimensional array type called ndarray. It describes the collection of items of the same type. Items in the collection can be accessed using a zero-based index. Every item in an ndarray takes the same size of block in the memory. Each element in ndarray is an object of data-type object (called dtype). Any item extracted from ndarray object (by slicing) is represented by a Python object of one of array scalar types.We will see lots of examples on using NumPy library of python in Data science work in the next chapters..</p>	
+					
+					<hr>
+					<div>
+					<a href="<?= $this->url('datascience', ['action' => 'pandas']) ?>" style="float: left;" >previous Page</a>
+					<a href="<?= $this->url('datascience', ['action' => 'scipy']) ?>" style="float: right" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

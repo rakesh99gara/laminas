@@ -1,0 +1,73 @@
+<?php
+use Laminas\Db\Adapter\AdapterInterface;
+use Laminas\Db\Adapter\Driver\ResultInterface;
+use Laminas\Db\Sql\Sql;
+
+$adapter = new Laminas\Db\Adapter\Adapter([
+'driver'   => 'Pdo_Sqlite',
+'database' => __DIR__ . '/../../../../../data/rtutordb',
+]);
+
+
+
+
+$qry = "SELECT * FROM course WHERE status=1";
+
+if(isset($_REQUEST["categorydata"]))
+{
+$category_filter = implode("','", $_REQUEST['categorydata']);
+$qry = $qry." AND course_category IN ('".$category_filter."')";
+}
+
+if(isset($_REQUEST["jobdata"]))
+{
+$job_filter = implode("','", $_REQUEST['jobdata']); 
+$qry = $qry." AND course_jobtitle IN ('".$job_filter."')";
+}
+if(isset($_REQUEST["leveldata"]))
+{
+$level_filter = implode("','", $_REQUEST['leveldata']); 
+$qry =$qry." AND course_level IN ('".$level_filter."')";
+}
+
+if(isset($_REQUEST["creatordata"]))
+{
+$creator_filter = implode("','", $_REQUEST['creatordata']); 
+$qry =$qry." AND course_creator IN ('".$creator_filter."')";
+}
+
+$statement = $adapter->query($qry);
+$results = $statement->execute();
+$row_count = $results->count();
+
+$output = '';
+if($row_count > 0)
+{
+foreach($results as $row)
+{
+$output .= '
+<div class="col-sm-4 col-lg-4 col-md-4">
+<div class="hovereffect" style="border:1px solid #ccc; border-radius:10px; margin-bottom:16px; height:450px;">
+<img src="'.$this->basePath('img/'.$row['course_image'].'').'" class="img-fluid img-responsive"  alt="Laminas MVC Skeleton" />
+<div class="overlay">
+<p align="center"><strong>'. $row['course_category'] .'</strong></p>
+<h2 style="text-align:center;" >'. $row['course_name'] .'</h2>
+<p>Job Title : '. $row['course_jobtitle'].' <br />
+Course Level : '. $row['course_level'] .' <br />
+Creator : '. $row['course_creator'] .' <br /></p>
+<p><a href="'.$row['course_tag'].'" class="btn btn-outline-warning">View Course</a></p>
+</div>
+</div>
+
+</div>
+';
+}
+}
+else
+{
+$output = '<h3>No Data Found</h3>';
+}
+echo $output;
+exit;
+
+?>

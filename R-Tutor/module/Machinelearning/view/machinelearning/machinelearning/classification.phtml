@@ -1,0 +1,52 @@
+<?php
+	$title = 'Machine Learning';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('machinelearning/machinelearning/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Machine Learning Classification</h1>
+					<br>
+					<h3>Introduction to Classification</h3>
+					<p>Classification may be defined as the process of predicting class or category from observed values or given data points. The categorized output can have the form such as “Black” or “White” or “spam” or “no spam”.</p>
+					<p>Mathematically, classification is the task of approximating a mapping function (f) from input variables (X) to output variables (Y). It is basically belongs to the supervised machine learning in which targets are also provided along with the input data set.</p>
+					<p>An example of classification problem can be the spam detection in emails. There can be only two categories of output, “spam” and “no spam”; hence this is a binary type classification.</p>	
+					<p>To implement this classification, we first need to train the classifier. For this example, “spam” and “no spam” emails would be used as the training data. After successfully train the classifier, it can be used to detect an unknown email.</p>
+					<h3>Types of Learners in Classification</h3>
+					<p>We have two types of learners in respective to classification problems −</p>
+					<h2>Lazy Learners</h2>
+					<p>As the name suggests, such kind of learners waits for the testing data to be appeared after storing the training data. Classification is done only after getting the testing data. They spend less time on training but more time on predicting. Examples of lazy learners are K-nearest neighbor and case-based reasoning.</p>
+					<h2>Eager Learners</h2>
+					<p>As opposite to lazy learners, eager learners construct classification model without waiting for the testing data to be appeared after storing the training data. They spend more time on training but less time on predicting. Examples of eager learners are Decision Trees, Naïve Bayes and Artificial Neural Networks (ANN).</p>
+					<h3>Types of Algorithms</h3>
+					<ul>
+						<li>Logistic Regression</li>
+						<li>Support vector machine(SVM)</li>
+						<li>Decision Tree</li>
+						<li>Naive Bayes</li>
+						<li>Random Forest</li>
+					</ul>
+
+					<hr>
+					<div>
+						<a href="<?= $this->url('machinelearning', ['action' => 'basics']) ?>" style="float: left;" >previous Page</a>
+						<a href="<?= $this->url('machinelearning', ['action' => 'regression']) ?>" style="float: right;" >Next Page</a>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

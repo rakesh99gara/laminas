@@ -1,0 +1,50 @@
+<?php
+	$title = 'Python';
+	$this->headTitle($title);
+?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('python/python/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Python - Decision Making</h1>
+					<br>
+					<p>Decision making is anticipation of conditions occurring while execution of the program and specifying actions taken according to the conditions.</p>
+					<p>Decision structures evaluate multiple expressions which produce TRUE or FALSE as outcome. You need to determine which action to take and which statements to execute if outcome is TRUE or FALSE otherwise.</p>
+					<p>Python programming language assumes any non-zero and non-null values as TRUE, and if it is either zero or null, then it is assumed as FALSE value.</p>
+					<p>Python programming language provides following types of decision making statements. Click the following links to check their detail.</p>
+					<h3>Decision Making </h3>
+					<ul>
+						<li>if statements</li>
+						<li>if...else statements</li>
+						<li>nested if statements</li>
+					</ul>
+					<h3>Single Statement Suites</h3>
+					<p>If the suite of an if clause consists only of a single line, it may go on the same line as the header statement.</p>
+					<p>
+					Here is an example of a one-line if clause −
+					</p>
+					<blockquote class="code">
+						<p>var = 100</p>
+						<p>if ( var == 100 ) : print "Value of expression is 100"</p>
+						<p>print "Good bye!"</p>
+					</blockquote>
+					<hr>
+					<div>
+					<a href="<?= $this->url('python', ['action' => 'basicoperators']) ?>" style="float: left" >Previous Page</a>
+					<a href="<?= $this->url('python', ['action' => 'loops']) ?>" style="float: right" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

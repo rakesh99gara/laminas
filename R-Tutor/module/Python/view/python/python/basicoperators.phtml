@@ -1,0 +1,81 @@
+<?php
+	$title = 'Python';
+	$this->headTitle($title);
+?>
+<div class="container pt-3">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('python/python/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Python - Basic Operators</h1>
+					<br>
+					<p>Operators are the constructs which can manipulate the value of operands.</p>
+					<p>Consider the expression 4 + 5 = 9. Here, 4 and 5 are called operands and + is called operator.</p>
+					<h3>Types of Operators</h3>
+					<p>Python language supports the following types of operators.</p>
+					<ul>
+						<li>Arithmetic Operators</li>
+						<li>Comparison (Relational) Operators</li>
+						<li>Assignment Operators</li>
+						<li>Logical Operators</li>
+						<li>Bitwise Operators</li>
+						<li>Membership Operators</li>
+						<li>Identity Operators</li>
+					</ul>
+					<h3>Python Arithmetic Operators</h3>
+					<ul>
+						<li>+ Addition</li>
+						<li>- Subtraction</li>
+						<li>* Multiplication</li>
+						<li>/ Division</li>
+						<li>% Modulus</li>
+						<li>** Exponent</li>
+						<li>//</li>
+					</ul>
+					<h3>Python Comparison Operators</h3>
+					<ul>
+						<li>==</li>
+						<li>!=</li>
+						<li>></li>
+						<li><</li>
+						<li>>=</li>
+						<li><=</li>
+					</ul>
+					<h3>Python Assignment Operators</h3>
+					<ul>
+						<li>=</li>
+						<li>+= Add AND</li>
+						<li>-= Subtract AND</li>
+						<li>*= Multiply AND</li>
+						<li>/= Divide AND</li>
+						<li>%= Modulus AND</li>
+					</ul>
+					<h3>Python Bitwise Operators</h3>
+					<ul>
+						<li>& Binary AND</li>
+						<li>| Binary OR</li>
+						<li>^ Binary XOR</li>
+						<li>~ Binary Ones Complement</li>
+						<li><< Binary Left Shift</li>
+						<li>>> Binary Right Shift</li>
+					</ul>
+					
+					<hr>
+					<div>
+					<a href="<?= $this->url('python', ['action' => 'variabletypes']) ?>" style="float: left" >Previous Page</a>
+					<a href="<?= $this->url('python', ['action' => 'decisionmaking']) ?>" style="float: right" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

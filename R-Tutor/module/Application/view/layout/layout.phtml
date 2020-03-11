@@ -1,0 +1,110 @@
+<?= $this->doctype() ?>
+<?php 
+use Laminas\Authentication\AuthenticationService;
+$this->auth = new AuthenticationService();
+?>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('Rtutor')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'])
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?= $this->inlineScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.4.1.min.js'))
+        ?>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="<?= $this->url('home') ?>">
+                        Rtutor
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <?php if($this->auth->getIdentity()){?>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="<?= $this->url('user') ?>">Welcome <?php echo $this->auth->getIdentity()->username  ?> <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="<?= $this->url('course') ?>">View Courses <span class="sr-only">(current)</span></a>
+                            </li>
+                             <li class="nav-item active">
+                                <a class="nav-link" href="<?= $this->url('user', ['action' => 'logout']) ?>">Logout <span class="sr-only">(current)</span></a>
+                            </li>
+                        <?php } 
+                        else{?>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="<?= $this->url('user', ['action' => 'register']) ?>">Register<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="<?= $this->url('user', ['action' => 'login']) ?>">Login<span class="sr-only">(current)</span></a>
+                            </li>
+                       <?php } ?>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            
+            <?php
+            if ($this->flashMessenger()->hasMessages()) {
+            ?>
+           
+            <div class="alert alert-success alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <?php
+                    echo $this->flashMessenger()->render();
+                    ?>
+            </div>
+            <?php } ?>
+            <?= $this->content ?>
+            <hr>
+            
+            <footer class="main-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                        <h3>About Rtutor</h3>
+                        <p>We provide world-class training and development programs developed by top universities. All courses on Rtutor provides a vast amount of knowledge for professionals and syudents. </p>
+                        <p>Copyright &copy; 2020</p>
+                        </div>
+                        <div class="col-md-4">
+                            <br><br>
+                            <ul class="list-unstyled">
+                                <li><a href="<?= $this->url('course') ?>">Courses</a></li>
+                                <li><a href="#">About</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-unstyled">
+                                <br><br>
+                                <li><a href="#">Contact Us</a></li>
+                                <li><a href="#">For Startups</a></li>
+                                <li><a href="#">For Enterprises</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <?= $this->inlineScript() ?>
+    </body>
+</html>

@@ -1,0 +1,51 @@
+<?php
+	$title = 'Python';
+	$this->headTitle($title);
+?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('python/python/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Python - Loops</h1>
+					<br>
+					<p>In general, statements are executed sequentially: The first statement in a function is executed first, followed by the second, and so on. There may be a situation when you need to execute a block of code several number of times.</p>
+					<p>Programming languages provide various control structures that allow for more complicated execution paths.</p>
+					<p>A loop statement allows us to execute a statement or group of statements multiple times.</p>
+					<p>Python programming language provides following types of loops to handle looping requirements.</p>
+					<h3> Loop Types </h3>
+					<ul>
+						<li>While Loop</li>
+						<li>For Loop</li>
+						<li>nested Loop</li>
+					</ul>
+					<h3>Loop Control Statements</h3>
+					<p>Loop control statements change execution from its normal sequence. When execution leaves a scope, all automatic objects that were created in that scope are destroyed.</p>
+					<p>
+					Python supports the following control statements. Click the following links to check their detail.Let us go through the loop control statements briefly
+					</p>
+					<h3> Loop Control  Statements </h3>
+					<ul>
+						<li>break statement</li>
+						<li>continue statement</li>
+						<li>pass statement</li>
+					</ul>
+					<hr>
+					<div>
+					<a href="<?= $this->url('python', ['action' => 'decisionmaking']) ?>" style="float: left" >Previous Page</a>
+					<a href="<?= $this->url('python', ['action' => 'loops']) ?>" style="float: right" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,100 @@
+<?=$this->inlineScript()
+    ->prependFile($this->basePath('js/jquery-3.4.1.min.js'))
+?>
+<?php
+use Laminas\Authentication\AuthenticationService;
+$this->auth = new AuthenticationService();
+$adapter = new Laminas\Db\Adapter\Adapter([
+    'driver' => 'Pdo_Sqlite',
+    'database' => __DIR__ . '/../../../../../data/todoapp.db',
+]);
+?>
+    <div class="index-page">
+        <div class="categories">
+            <h4>Categories</h4>
+            <hr>
+        <?php
+            $statement = $adapter->query('SELECT * FROM category');
+            $results = $statement->execute();
+            foreach ($results as $row) {
+        ?>
+            <div class="checkboxes">
+                <label><input type="checkbox" class="category" value="<?php echo $row['id']; ?>" id=<?php echo $row['id'] ?>  > <?php echo $row['category']; ?></label>
+            </div>
+        <?php
+            }
+        ?>  
+        </div>
+        <div class="todo-box">
+            <?php
+                $title = 'My Todos';
+                $this->headTitle($title);
+            ?>
+            <div class="index-heading">
+                <h1><?=$this->escapeHtml($title)?></h1> 
+            </div>
+            
+            <div class="todos-table">
+                <table class="table">
+                    <tr>
+                        <th>Todo</th>
+                        <th>Imp</th>
+                        <th>Remarks</th>
+                        <th>Status</th>
+                        <th>User Id</th>
+                        <th>Category</th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    <?php foreach ($todos as $todo): ?>
+                    <tr>
+                        <td><?=$this->escapeHtml($todo->todo)?></td>
+                        <td><?=$this->escapeHtml($todo->imp)?></td>
+                        <td><?=$this->escapeHtml($todo->remarks)?></td>
+                        <td><?=$this->escapeHtml($todo->status)?></td>
+                        <?php
+                            $statement = $adapter->query('SELECT * FROM todo WHERE id = ' . $todo->id);
+                            $results = $statement->execute();
+                            $row = $results->current();
+                            $statement = $adapter->query('SELECT * from category WHERE id = ' . $row['category_id']);
+                            $results = $statement->execute();
+                            $category = $results->current();
+                        ?>
+                        <td><?php echo $row['user_id']; ?></td>
+                        <td><?php echo $category['category']; ?></td>
+                        <td>
+                            <a href="<?=$this->url('todo', ['action' => 'edit', 'id' => $todo->id])?>">Edit</a>
+                            <a href="<?=$this->url('todo', ['action' => 'delete', 'id' => $todo->id])?>">Delete</a>
+                        </td>
+                    </tr>
+                    <?php endforeach;?>
+                </table>            
+            </div>
+        </div>
+        
+    </div>
+    <div class="overlay-btn">
+        <a href="<?=$this->url('todo', ['action' => 'add'])?>">
+            <div class="add-new">
+                    <span class="add">+</span>
+            </div>
+        </a>
+    </div>
+
+<script>
+    $(document).ready(function(){
+        $('.category').click(function(event){
+            var action = 'fetchtodo';
+            var category=[];
+            var uid = <?php echo $this->auth->getIdentity()->id; ?>;
+            $('.category:checked').each(function(index,element) {
+                category.push($(element).val());
+            });
+            console.log(category);
+            $.get("fetchtodo",{category: category, uid: uid},function(data,status,xhr){
+            $(".todos-table").html(data);
+            console.log(data);
+            console.log(status);
+        });
+        }); 
+    });
+</script>

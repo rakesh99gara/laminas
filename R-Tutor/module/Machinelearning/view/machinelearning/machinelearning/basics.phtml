@@ -1,0 +1,44 @@
+<?php
+	$title = 'Machine Learning';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('machinelearning/machinelearning/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Machine Learning Basics</h1>
+					<br>
+					<p>We are living in the ‘age of data’ that is enriched with better computational power and more storage resources,. This data or information is increasing day by day, but the real challenge is to make sense of all the data. Businesses & organizations are trying to deal with it by building intelligent systems using the concepts and methodologies from Data science, Data Mining and Machine learning. Among them, machine learning is the most exciting field of computer science. It would not be wrong if we call machine learning the application and science of algorithms that provides sense to the data.</p>
+					<h3>What is Machine Learning?</h3>	
+					<p>Machine Learning (ML) is that field of computer science with the help of which computer systems can provide sense to data in much the same way as human beings do.</p>
+					<p>In simple words, ML is a type of artificial intelligence that extract patterns out of raw data by using an algorithm or method. The main focus of ML is to allow computer systems learn from experience without being explicitly programmed or human intervention.</p>	
+					<h3>Need for Machine Learning</h3>
+					<p>Human beings, at this moment, are the most intelligent and advanced species on earth because they can think, evaluate and solve complex problems. On the other side, AI is still in its initial stage and haven’t surpassed human intelligence in many aspects. Then the question is that what is the need to make machine learn? The most suitable reason for doing this is, “to make decisions, based on data, with efficiency and scale”.</p>
+					<p>Lately, organizations are investing heavily in newer technologies like Artificial Intelligence, Machine Learning and Deep Learning to get the key information from data to perform several real-world tasks and solve problems. We can call it data-driven decisions taken by machines, particularly to automate the process. These data-driven decisions can be used, instead of using programing logic, in the problems that cannot be programmed inherently. The fact is that we can’t do without human intelligence, but other aspect is that we all need to solve real-world problems with efficiency at a huge scale. That is why the need for machine learning arises.</p>
+					<h3>Why & When to Make Machines Learn?</h3>
+					<p>We have already discussed the need for machine learning, but another question arises that in what scenarios we must make the machine learn? There can be several circumstances where we need machines to take data-driven decisions with efficiency and at a huge scale. The followings are some of such circumstances where making machines learn would be more effective.</p>
+					<h3>Lack of human expertise</h3>
+					<p>The very first scenario in which we want a machine to learn and take data-driven decisions, can be the domain where there is a lack of human expertise. The examples can be navigations in unknown territories or spatial planets.</p>
+					
+					
+					<hr>
+					<div>
+					<a href="<?= $this->url('machinelearning', ['action' => 'classification']) ?>" style="float: right;" >Next Page</a>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

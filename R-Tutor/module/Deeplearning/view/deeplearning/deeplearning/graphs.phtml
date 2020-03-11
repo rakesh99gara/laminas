@@ -1,0 +1,59 @@
+<?php
+	$title = 'Deep Learning';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('deeplearning/deeplearning/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Computational Graphs</h1>
+					<br>
+					<p>Backpropagation is implemented in deep learning frameworks like Tensorflow, Torch, Theano, etc., by using computational graphs. More significantly, understanding back propagation on computational graphs combines several different algorithms and its variations such as backprop through time and backprop with shared weights. Once everything is converted into a computational graph, they are still the same algorithm − just back propagation on computational graphs.</p>
+					<h3>What is Computational Graph</h3>
+					<p>A computational graph is defined as a directed graph where the nodes correspond to mathematical operations. Computational graphs are a way of expressing and evaluating a mathematical expression.</p>
+					<h3>Computational Graphs and Backpropagation</h3>
+					<p>Computational graphs and backpropagation, both are important core concepts in deep learning for training neural networks.</p>
+					<h4>Forward Pass</h4>
+					<p>Forward pass is the procedure for evaluating the value of the mathematical expression represented by computational graphs. Doing forward pass means we are passing the value from variables in forward direction from the left (input) to the right where the output is.</p>
+					<p>By giving these values to the inputs, we can perform forward pass and get the following values for the outputs on each node.</p>
+					<h3>Objectives of Backward Pass</h3>
+					<p>In the backward pass, our intention is to compute the gradients for each input with respect to the final output. These gradients are essential for training the neural network using gradient descent.For example, we desire the following gradients.</p>
+					<h4>Backward pass (backpropagation)</h4>
+					<p>We start the backward pass by finding the derivative of the final output with respect to the final output (itself!). Thus, it will result in the identity derivation and the value is equal to one.</p>
+					<h3>Steps for training a neural network</h3>
+					<ul>
+						<li>
+							For data point x in dataset,we do forward pass with x as input, and calculate the cost c as output.
+						</li>
+						<li>
+							We do backward pass starting at c, and calculate gradients for all nodes in the graph. This includes nodes that represent the neural network weights.
+						</li>
+						<li>
+							We then update the weights by doing W = W - learning rate * gradients.
+						</li>
+						<li>
+							We repeat this process until stop criteria is met.
+						</li>
+					</ul>
+					<hr>
+					<div>
+						<a href="<?= $this->url('deeplearning', ['action' => 'deepnn']) ?>" style="float: left;" >previous Page</a>
+						
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

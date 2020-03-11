@@ -1,0 +1,176 @@
+
+<?php 
+use Laminas\Db\Adapter\AdapterInterface;
+use Laminas\Db\Adapter\Driver\ResultInterface;
+use Laminas\Db\Sql\Sql;
+
+$adapter = new Laminas\Db\Adapter\Adapter([
+    'driver'   => 'Pdo_Sqlite',
+    'database' => __DIR__ . '/../../../../../data/rtutordb',
+]);
+
+?>
+<h1 class="text-center">List of All Courses</h1>
+<div class="container-fluid pt-3">
+    <div class="row">
+        <div class="col-md-3">  
+            <h2>Filter Courses By</h2>                  
+            <div class="list-group">
+                <h3 class="text-secondary">Category</h3>
+                <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+                <?php
+                $statement = $adapter->query(
+                    'SELECT DISTINCT course_category FROM course ORDER BY course_id'
+                );
+                $results = $statement->execute();
+                
+                foreach($results as $row)
+                {
+                ?>
+                <div class="list-group-item checkbox">
+                    <label><input type="checkbox" class="common_selector category" value="<?php echo $row['course_category']; ?>"  > <?php echo $row['course_category']; ?></label>
+                </div>
+                <?php
+                }
+
+                ?>
+                </div>
+            </div>
+
+            <div class="list-group">
+                <h3 class="text-secondary">Job Title</h3>
+                <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+                <?php
+                $statement = $adapter->query(
+                    'SELECT DISTINCT course_jobtitle FROM course ORDER BY course_jobtitle'
+                );
+                $results = $statement->execute();
+                foreach($results as $row)
+                {
+                ?>
+                <div class="list-group-item checkbox">
+                    <label><input type="checkbox" class="common_selector job" value="<?php echo $row['course_jobtitle']; ?>" > <?php echo $row['course_jobtitle']; ?></label>
+                </div>
+                <?php    
+                }
+
+                ?>
+            </div>
+            </div>
+
+            <div class="list-group">
+                <h3 class="text-secondary">Level</h3>
+                <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+                <?php
+                $statement = $adapter->query(
+                    'SELECT DISTINCT course_level FROM course ORDER BY course_level'
+                );
+                $results = $statement->execute();
+                foreach($results as $row)
+                {
+                ?>
+                <div class="list-group-item checkbox">
+                    <label><input type="checkbox" class="common_selector level" value="<?php echo $row['course_level']; ?>"  > <?php echo $row['course_level']; ?></label>
+                </div>
+                <?php
+                }
+                ?> 
+            </div>
+            </div>
+            <div class="list-group">
+                <h3 class="text-secondary">Course Creator</h3>
+                <div style="height: 180px; overflow-y: auto; overflow-x: hidden;">
+                <?php
+                $statement = $adapter->query(
+                    'SELECT DISTINCT course_creator FROM course ORDER BY course_creator'
+                );
+                $results = $statement->execute();
+                foreach($results as $row)
+                {
+                ?>
+                <div class="list-group-item checkbox">
+                    <label><input type="checkbox" class="common_selector creator" value="<?php echo $row['course_creator']; ?>"  > <?php echo $row['course_creator']; ?></label>
+                </div>
+                <?php
+                }
+                ?> 
+            </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="row filter_data">
+                <?php
+                $statement = $adapter->query("SELECT * FROM course");
+                $results = $statement->execute();
+                foreach($results as $row)
+                  {
+                   ?>
+                   <div class="col-sm-4 col-lg-4 col-md-4">
+                    <div class="hovereffect" style="border:1px solid #ccc; border-radius:10px; margin-bottom:16px; height:450px;">
+                        <img src="<?= $this->basePath('img/'. $row['course_image']) ?>" class="img-fluid img-responsive"  alt="Laminas MVC Skeleton"/>
+                    <div class="overlay">
+                     <p align="center" style="color: black; font-size: 20px;"><strong><?php echo $row['course_category']; ?></strong></p>
+                     <h2 style="text-align:center" ><?php echo $row['course_name'] ?></h2>
+                     <p>Job Title : <?php echo $row['course_jobtitle']?><br />
+                     Course Level : <?php echo $row['course_level'] ?> <br />
+                     Creator : <?php echo $row['course_creator'] ?><br /></p>
+                     <p><a href="<?php echo $row['course_tag'] ?>" class="btn btn-outline-warning">View Course</a></p>
+                    </div>
+                    </div>
+                   </div>
+                   <?php
+                  }
+                  ?>
+            </div>
+        </div>
+    </div>
+
+</div>
+<style>
+#loading
+{
+text-align:center; 
+background: url('loader.gif') no-repeat center; 
+height: 150px;
+}
+</style>
+
+
+<script>
+$(document).ready(function(){
+    
+    function get_filter(class_name)
+    {
+        var filter = [];
+        $('.'+class_name+':checked').each(function(){
+            filter.push($(this).val());
+        });
+        return filter;
+    }
+
+    $('.common_selector').click(function(){
+        var action = 'fetchdata';
+        var category=[];
+        $('.category:checked').each(function(index,element) {
+            category.push($(element).val());
+        })
+        var job=[];
+        $('.job:checked').each(function(index,element) {
+            job.push($(element).val());
+        })
+        var level=[];
+        $('.level:checked').each(function(index,element) {
+            level.push($(element).val());
+        })
+        var creator=[];
+        $('.creator:checked').each(function(index,element) {
+            creator.push($(element).val());
+        })
+        $.get("fetchdata",{actiondata: action,categorydata: category, jobdata: job, leveldata: level,creatordata: creator},function(data,status,xhr){
+            $(".filter_data").html(data);
+            console.log(status);
+        });
+    });
+});
+</script>
+

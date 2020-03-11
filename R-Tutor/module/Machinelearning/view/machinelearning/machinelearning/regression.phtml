@@ -1,0 +1,61 @@
+<?php
+	$title = 'Machine Learning';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('machinelearning/machinelearning/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Machine Learning Regression</h1>
+					<br>
+					<h3>Introduction to Regression</h3>
+					<p>Regression is another important and broadly used statistical and machine learning tool. The key objective of regression-based tasks is to predict output labels or responses which are continues numeric values, for the given input data. The output will be based on what the model has learned in training phase. Basically, regression models use the input data features (independent variables) and their corresponding continuous numeric output values (dependent or outcome variables) to learn specific association between inputs and corresponding outputs.</p>
+					<h3>Types of Regression Models</h3>
+					<p>Regression models are of following two types −</p>
+					<p><b>Simple regression model −</b>This is the most basic regression model in which predictions are formed from a single, univariate feature of the data.</p>
+					<p><b>Multiple regression model − </b>As name implies, in this regression model the predictions are formed from multiple features of the data.</p>
+					<h3>Building a Regressor in Python</h3>
+					<p>Regressor model in Python can be constructed just like we constructed the classifier. Scikit-learn, a Python library for machine learning can also be used to build a regressor in Python.</p>
+					<p>In the following example, we will be building basic regression model that will fit a line to the data i.e. linear regressor. </p>
+					<h3>Types of ML Regression Algorithms</h3>
+					<p>The most useful and popular ML regression algorithm is Linear regression algorithm which further divided into two types namely −</p>
+					<ul>Simple Linear Regression algorithm</ul>
+					<ul>Multiple Linear Regression algorithm.</ul>
+					<p>We will discuss about it and implement it in Python in the next chapter.</p>
+					<h3>Applications</h3>
+					<ul>
+						<li>
+							Forecasting or Predictive analysis − One of the important uses of regression is forecasting or predictive analysis. For example, we can forecast GDP, oil prices or in simple words the quantitative data that changes with the passage of time.
+						</li>
+						<li>
+							Optimization − We can optimize business processes with the help of regression. For example, a store manager can create a statistical model to understand the peek time of coming of customers.
+						</li>
+						<li>
+							Error correction − In business, taking correct decision is equally important as optimizing the business process. Regression can help us to take correct decision as well in correcting the already implemented decision.
+						</li>
+						<li>
+							Economics − It is the most used tool in economics. We can use regression to predict supply, demand, consumption, inventory investment etc.
+						</li>
+					</ul>
+					<hr>
+					<div>
+						<a href="<?= $this->url('machinelearning', ['action' => 'classification']) ?>" style="float: left;" >previous Page</a>
+						<a href="<?= $this->url('machinelearning', ['action' => 'clustering']) ?>" style="float: right;" >Next Page</a>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

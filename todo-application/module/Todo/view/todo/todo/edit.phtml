@@ -1,0 +1,115 @@
+<?php 
+use Laminas\Db\Adapter\AdapterInterface;
+use Laminas\Db\Adapter\Driver\ResultInterface;
+use Laminas\Db\Sql\Sql;
+
+$adapter = new Laminas\Db\Adapter\Adapter([
+    'driver'   => 'Pdo_Sqlite',
+    'database' => __DIR__ . '/../../../../../data/todoapp.db',
+]);
+?>
+<?php
+// module/Album/view/album/album/edit.phtml:
+
+$title = 'Edit Todo';
+$this->headTitle($title);
+?>
+<?php
+$todo = $form->get('todo');
+$todo->setAttribute('class', 'form-control');
+$todo->setAttribute('placeholder', 'Todo ...');
+
+$imp = $form->get('imp');
+$imp->setAttribute('class', 'form-control');
+$imp->setAttribute('placeholder', '1 or 0');
+
+$remarks = $form->get('remarks');
+$remarks->setAttribute('class', 'form-control');
+$remarks->setAttribute('placeholder', 'Remarks');
+
+$status = $form->get('status');
+$status->setAttribute('class', 'form-control');
+$status->setAttribute('placeholder', '1 or 0');
+
+$category_id = $form->get('category_id');
+$category_id->setAttribute('class', 'form-control');
+$category_id->setAttribute('placeholder', 'Category_id');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('todo', [
+    'action' => 'edit',
+    'id'     => $id,
+]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<div class="add-todo-page">
+    <div class="category-div">
+        <?php 
+            $statement = $adapter->query(
+                'SELECT * FROM category ORDER BY id'
+            );
+            $results = $statement->execute();
+        ?>
+        <div class="category-table">
+        <h4>Categories</h4>
+            <table>
+                <?php
+                foreach($results as $row)
+                {
+                    echo "
+                    <tr>
+                        <td>".$row['id']."&nbsp</td>
+                        <td>".$row['category']."</td>
+                    </tr>
+                    ";
+                }
+                ?>
+            </table>
+        </div>
+    </div>
+    <div class="vl"></div>
+    <div class="add-todo-form">
+        <h1><?= $this->escapeHtml($title) ?></h1>
+        <div class="form-group">
+            <?= $this->formLabel($todo) ?>
+            <?= $this->formElement($todo) ?>
+            <?= $this->formElementErrors()->render($todo, ['class' => 'help-block']) ?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($imp) ?>
+            <?= $this->formElement($imp) ?>
+            <?= $this->formElementErrors()->render($imp, ['class' => 'help-block']) ?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($remarks) ?>
+            <?= $this->formElement($remarks) ?>
+            <?= $this->formElementErrors()->render($remarks, ['class' => 'help-block']) ?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($status) ?>
+            <?= $this->formElement($status) ?>
+            <?= $this->formElementErrors()->render($status, ['class' => 'help-block']) ?>
+        </div>
+
+        <div class="form-group">
+            <?= $this->formLabel($category_id) ?>
+            <?= $this->formElement($category_id) ?>
+            <?= $this->formElementErrors()->render($category_id, ['class' => 'help-block']) ?>
+        </div>
+
+        <?php
+        echo $this->formSubmit($submit);
+        echo $this->formHidden($form->get('id'));
+        echo $this->form()->closeTag();
+        ?>
+    </div>
+</div>
+
+

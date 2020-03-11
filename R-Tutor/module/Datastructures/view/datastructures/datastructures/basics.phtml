@@ -1,0 +1,63 @@
+<?php
+	$title = 'Data Structures';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('datastructures/datastructures/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Data Structures-Basics</h1>
+					<br>
+					<p>Algorithm is a step-by-step procedure, which defines a set of instructions to be executed in a certain order to get the desired output. Algorithms are generally created independent of underlying languages, i.e. an algorithm can be implemented in more than one programming language.</p>
+					<p>From the data structure point of view, following are some important categories of algorithms</p>
+					
+					<ul>
+						<li>Search − Algorithm to search an item in a data structure.</li>
+						<li>Sort − Algorithm to sort items in a certain order.</li>
+						<li>Insert − Algorithm to insert item in a data structure.</li>
+						<li>Update − Algorithm to update an existing item in a data structure.</li>
+						<li>Delete − Algorithm to delete an existing item from a data structure.</li>
+					</ul>
+					<h3>Characteristics of an Algorithm</h3>
+					<p>Not all procedures can be called an algorithm. An algorithm should have the following characteristics</p>
+					<ul>
+						<li>Unambiguous − Algorithm should be clear and unambiguous. Each of its steps (or phases), and their inputs/outputs should be clear and must lead to only one meaning.</li>
+						<li>Input − An algorithm should have 0 or more well-defined inputs.</li>
+						<li>Output − An algorithm should have 1 or more well-defined outputs, and should match the desired output.</li>
+						<li>Finiteness − Algorithms must terminate after a finite number of steps.</li>
+						<li>Feasibility − Should be feasible with the available resources.</li>
+					</ul>
+					<h3>How to Write an Algorithm?</h3>
+					<p>There are no well-defined standards for writing algorithms. Rather, it is problem and resource dependent. Algorithms are never written to support a particular programming code.</p>
+					<p>As we know that all programming languages share basic code constructs like loops (do, for, while), flow-control (if-else), etc. These common constructs can be used to write an algorithm.</p>
+					<p>We write algorithms in a step-by-step manner, but it is not always the case. Algorithm writing is a process and is executed after the problem domain is well-defined. That is, we should know the problem domain, for which we are designing a solution.</p>
+					<p>Example</p>
+					<blockquote class="code">
+						<p>Step 1 − START<br>
+						Step 2 − declare three integers a, b & c<br>
+						Step 3 − define values of a & b<br>
+						Step 4 − add values of a & b<br>
+						Step 5 − store output of step 4 to c<br><br>
+						Step 6 − print c<br>
+						Step 7 − STOP</p>
+					</blockquote>
+					<hr>
+					<div>
+						<a href="<?= $this->url('datastructures', ['action' => 'greedy']) ?>" style="float: right;" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

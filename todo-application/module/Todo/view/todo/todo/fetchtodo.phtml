@@ -1,0 +1,106 @@
+<?php
+
+$adapter = new Laminas\Db\Adapter\Adapter([
+    'driver' => 'Pdo_Sqlite',
+    'database' => __DIR__ . '/../../../../../data/todoapp.db',
+]);
+
+$uid = $_REQUEST['uid'];
+$category_count = $_REQUEST['category'];
+$category = implode(",", $_REQUEST['category']);
+$output = '';
+if ($category_count == 0) {
+    $qry = "SELECT * FROM todo WHERE user_id = $uid";
+    $statement = $adapter->query($qry);
+    $results = $statement->execute();
+    $row_count = $results->count();
+    if ($row_count > 0) {
+        $output .=
+            "
+            <table class='table'>
+            <tbody>
+                <tr>
+                    <th>Todo</th>
+                    <th>Imp</th>
+                    <th>Remarks</th>
+                    <th>Status</th>
+                    <th>User Id</th>
+                    <th>Category</th>
+                    <th>&nbsp;</th>
+                </tr>
+        ";
+        foreach ($results as $row) {
+            $query = "SELECT * FROM category WHERE id = " . $row['category_id'];
+            $stm = $adapter->query($query);
+            $result = $stm->execute();
+            $cat = $result->current();
+            $output .=
+                "
+                <tr>
+                    <td>" . $row['todo'] . "</td>
+                    <td>" . $row['imp'] . "</td>
+                    <td>" . $row['remarks'] . "</td>
+                    <td>" . $row['status'] . "</td>
+                    <td>" . $row['user_id'] . "</td>
+                    <td>" . $cat['category'] . "</td>
+                    <td>
+                        <a href='todo/edit/" . $row['id'] . "'>Edit</a>
+                        <a href='todo/delete/" . $row['id'] . "'>Delete</a>
+                    </td>
+                </tr>
+            ";
+        }
+        $output .= "</tbody></table>";
+    } else {
+        $output .= "<h4>No data Available</h4>";
+    }
+} else {
+    $qry = "SELECT * FROM todo WHERE user_id = $uid AND category_id IN (" . $category . ")";
+    $statement = $adapter->query($qry);
+    $results = $statement->execute();
+    $row_count = $results->count();
+    if ($row_count > 0) {
+        $output .=
+            "
+            <table class='table'>
+            <tbody>
+                <tr>
+                    <th>Todo</th>
+                    <th>Imp</th>
+                    <th>Remarks</th>
+                    <th>Status</th>
+                    <th>User Id</th>
+                    <th>Category</th>
+                    <th>&nbsp;</th>
+                </tr>
+        ";
+        foreach ($results as $row) {
+            $query = "SELECT * FROM category WHERE id = " . $row['category_id'];
+            $stm = $adapter->query($query);
+            $result = $stm->execute();
+            $cat = $result->current();
+            $output .=
+                "
+                <tr>
+                    <td>" . $row['todo'] . "</td>
+                    <td>" . $row['imp'] . "</td>
+                    <td>" . $row['remarks'] . "</td>
+                    <td>" . $row['status'] . "</td>
+                    <td>" . $row['user_id'] . "</td>
+                    <td>" . $cat['category'] . "</td>
+                    <td>
+                        <a href='todo/edit/" . $row['id'] . "'>Edit</a>
+                        <a href='todo/delete/" . $row['id'] . "'>Delete</a>
+                    </td>
+                </tr>
+            ";
+        }
+        $output .= "</tbody></table>";
+    } else {
+        $output .= "<h4>No data Available</h4>";
+    }
+}
+
+// $output = count($category_count);
+echo $output;
+exit;

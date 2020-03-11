@@ -1,0 +1,102 @@
+<?php
+	$title = 'MachineLearning';
+	$this->headTitle($title);
+	use Laminas\Db\Adapter\AdapterInterface;
+	use Laminas\Db\Adapter\Driver\ResultInterface;
+	use Laminas\Db\Sql\Sql;
+
+	$adapter = new Laminas\Db\Adapter\Adapter([
+	    'driver'   => 'Pdo_Sqlite',
+	    'database' => __DIR__ . '/../../../../../data/rtutordb',
+	]);
+?>
+
+
+<div class="container-fluid">
+	<div class="row filter_data">
+        <?php
+	        $statement = $adapter->query("SELECT * FROM course WHERE course_tag='machinelearning'");
+	        $results = $statement->execute();
+	        foreach($results as $row)
+	          {
+        ?>
+        <div style="height:450px; width: 100%">
+	        <div class="jumbotron jumbotron-fluid text-center" style="background-color: #336699">
+				<div>
+					<p align="center" style="color: black; font-size: 20px;"><strong><?php echo $row['course_category']; ?></strong></p>
+					<h1 class="display-3 text-white"><?php echo $row['course_name'] ?></h1>
+					<p>Job Title : <?php echo $row['course_jobtitle']?><br />
+		             Course Level : <?php echo $row['course_level'] ?> <br />
+		             Creator : <?php echo $row['course_creator'] ?><br /></p>
+		             <p><a href="<?php echo $row['course_tag'] ?>/basics" class="btn btn-outline-warning">View Course</a></p>
+		             <?php $id=$row['course_id'] ?>
+				</div>
+			</div> 
+        </div>
+
+          <?php
+          }
+          ?>
+    </div>
+
+</div>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-4 box">
+			<h3>What You will Learn</h3>
+			<p>This is an Intermediate python tutorial</p>
+			<ul style="list-style-type: none;">
+				<li>Home</li>
+				<li>Basics</li>
+				<li>classification</li>
+				<li>regression</li>
+				<li>clustering</li>
+			</ul>
+		</div>	
+		<div class="col-md-4 box">
+			<h3>Requirements</h3>
+			<p>The reader must have basic knowledge of artificial intelligence. He/she should also be aware of Python, NumPy, Scikit-learn, Scipy, Matplotlib. If you are new to any of these concepts, we recommend you to take up tutorials concerning these topics, before you dig further into this tutorial. </p>
+		</div>	
+		<div class="col-md-4 box">
+			<h3>Description</h3>
+			<p>Machine Learning (ML) is basically that field of computer science with the help of which computer systems can provide sense to data in much the same way as human beings do. In simple words, ML is a type of artificial intelligence that extract patterns out of raw data by using an algorithm or method. The key focus of ML is to allow computer systems to learn from experience without being explicitly programmed or human intervention.</p>
+		</div>	
+	</div>
+</div>
+
+<div class="container-fluid pt-3"  style="margin-bottom: 10px;">
+	<h1 class="text-center">Reviews Of This Course</h1>	
+	<center>
+		<a  href="<?= $this->url('review', ['action' => 'add', 'id' => $id]) ?>" class="btn btn-outline-primary">Write a Review</a>
+	</center>
+	<br>
+	<?php
+        $statement = $adapter->query("SELECT * FROM reviews WHERE course_id=$id");
+        $results = $statement->execute();
+        foreach($results as $row)
+          {
+    ?>
+    <div class="media border p-3">
+	    <div class="media-body">
+	      <h4><?php echo $row['content']; ?></h4>
+	      <?php if ($row['user_id'] == $identity->id) {
+	      	?>
+	      	<p>Created by you.</p>
+	      <a href="<?= $this->url('review', ['action' => 'edit', 'id' => $row['id']]) ?>" class="btn btn-outline-success">Edit Review</a>
+	      <a href="<?= $this->url('review', ['action' => 'delete', 'id' => $row['id']]) ?>" class="btn btn-outline-danger">Delete Review</a>
+	     <?php } 
+	     else
+	     	{ ?>
+	     		<p>Created by User with Id: <?php echo $row['user_id']; ?></p>
+	     <?php
+	 		}
+	      ?>
+	    </div>
+	</div>
+	<br>
+	<?php
+		}
+	?>
+</div>
+
+            

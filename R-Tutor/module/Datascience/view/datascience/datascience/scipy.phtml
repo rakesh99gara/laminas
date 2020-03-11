@@ -1,0 +1,51 @@
+<?php
+	$title = 'DataScience';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('dataScience/dataScience/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">DataScience Scipy</h1>
+					<br>
+					<p>The SciPy library of Python is built to work with NumPy arrays and provides many user-friendly and efficient numerical practices such as routines for numerical integration and optimization. Together, they run on all popular operating systems, are quick to install and are free of charge. NumPy and SciPy are easy to use, but powerful enough to depend on by some of the world's leading scientists and engineers.</p>
+					<h3>SciPy Sub-packages</h3>	
+					<p>SciPy is organized into sub-packages covering different scientific computing domains</p>	
+					<ul>
+						<li>scipy.constants</li>
+						<li>scipy.fftpack</li>
+						<li>scipy.integrate</li>
+						<li>scipy.interpolate</li>
+						<li>scipy.io</li>
+						<li>scipy.linalg</li>
+						<li>scipy.optimize</li>
+						<li>scipy.signal</li>
+						<li>scipy.sparse</li>
+						<li>scipy.spatial</li>
+						<li>scipy.special</li>
+						<li>scipy.stats</li>
+					</ul>	
+					<h3>Data Structure</h3>	
+					<p>The basic data structure used by SciPy is a multidimensional array provided by the NumPy module. NumPy provides some functions for Linear Algebra, Fourier Transforms and Random Number Generation, but not with the generality of the equivalent functions in SciPy.We will see lots of examples on using SciPy library of python in Data science work in the next chapters.</p>
+					
+					<hr>
+					<div>
+					<a href="<?= $this->url('datascience', ['action' => 'numpy']) ?>" style="float: left;" >previous Page</a>
+					<a href="<?= $this->url('datascience', ['action' => 'matplotlib']) ?>" style="float: right" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

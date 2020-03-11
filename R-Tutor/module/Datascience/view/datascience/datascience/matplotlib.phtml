@@ -1,0 +1,48 @@
+<?php
+	$title = 'DataScience';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('dataScience/dataScience/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">DataScience Matplotlib</h1>
+					<br>
+					<p>Matplotlib is a python library used to create 2D graphs and plots by using python scripts. It has a module named pyplot which makes things easy for plotting by providing feature to control line styles, font properties, formatting axes etc. It supports a very wide variety of graphs and plots namely - histogram, bar charts, power spectra, error charts etc. It is used along with NumPy to provide an environment that is an effective open source alternative for MatLab. It can also be used with graphics toolkits like PyQt and wxPython.</p>
+					<h3>Matplotlib Example</h3>	
+					<p>The following script produces the sine wave plot using matplotlib.</p>	
+					<blockquote class="code">
+						<p>import numpy as np </p>
+						<p>import matplotlib.pyplot as plt  </p>
+						<p>x = np.arange(0, 3 * np.pi, 0.1) </p>
+						<p>y = np.sin(x) </p>
+						<p>plt.title("sine wave form")</p> 
+
+						<p># Plot the points using matplotlib</p> 
+						<p>plt.plot(x, y) </p>
+						<p>plt.show() </p>
+					</blockquote>
+
+					<p>We will see lots of examples on using Matplotlib library of python in Data science work in the next chapters..</p>
+					
+					<hr>
+					<div>
+					<a href="<?= $this->url('datascience', ['action' => 'scipy']) ?>" style="float: left;" >previous Page</a>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

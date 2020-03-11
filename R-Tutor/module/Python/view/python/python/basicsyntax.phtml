@@ -1,0 +1,107 @@
+<?php
+	$title = 'Python';
+	$this->headTitle($title);
+?>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('python/python/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Python - Basic Syntax</h1>
+					<p>The Python language has many similarities to Perl, C, and Java. However, there are some definite differences between the languages.</p>
+					<h3>First Python Program.</h3>
+					<p class="code text-center"><i>print "Hello, Python!"</i></p>
+					<h3>Python Identifiers</h3>
+					<p>A Python identifier is a name used to identify a variable, function, class, module or other object. An identifier starts with a letter A to Z or a to z or an underscore (_) followed by zero or more letters, underscores and digits (0 to 9).</p>
+					<p>Python does not allow punctuation characters such as @, $, and % within identifiers. Python is a case sensitive programming language. Thus, Manpower and manpower are two different identifiers in Python.</p>
+					<p>Here are naming conventions for Python identifiers −</p>
+					<ul>
+						<li>Class names start with an uppercase letter. All other identifiers start with a lowercase letter.</li>
+						<li>Starting an identifier with a single leading underscore indicates that the identifier is private.</li>
+						<li>Starting an identifier with two leading underscores indicates a strongly private identifier.</li>
+						<li>If the identifier also ends with two trailing underscores, the identifier is a language-defined special name.</li>
+					</ul>
+					<h3>Reserved Words</h3>
+					<p>The following list shows the Python keywords. These are reserved words and you cannot use them as constant or variable or any other identifier names. All the Python keywords contain lowercase letters only.</p>
+					<table class="table table-striped">
+						<tr>
+							<td>and</td>
+							<td>exec</td>
+							<td>not</td>
+						</tr>
+						<tr>
+							<td>assert</td>
+							<td>finally</td>
+							<td>or</td>
+						</tr>
+						<tr>
+							<td>break</td>
+							<td>for</td>
+							<td>pass</td>
+						</tr>
+						<tr>
+							<td>Class</td>
+							<td>from</td>
+							<td>print</td>
+						</tr>
+						<tr>
+							<td>continue</td>
+							<td>global</td>
+							<td>raise</td>
+						</tr>
+						<tr>
+							<td>def</td>
+							<td>if</td>
+							<td>return</td>
+						</tr>
+						<tr>
+							<td>del</td>
+							<td>import</td>
+							<td>try</td>
+						</tr>
+						<tr>
+							<td>elif</td>
+							<td>in</td>
+							<td>while</td>
+						</tr>
+						<tr>
+							<td>else</td>
+							<td>is</td>
+							<td>with</td>
+						</tr>
+						<tr>
+							<td>except</td>
+							<td>lambda</td>
+							<td>yield</td>
+						</tr>
+					</table>
+					<h3>Lines and Indentation</h3>
+					<p>Python provides no braces to indicate blocks of code for class and function definitions or flow control. Blocks of code are denoted by line indentation, which is rigidly enforced.</p>
+					<p>The number of spaces in the indentation is variable, but all statements within the block must be indented the same amount. </p>
+					<h3>Multi-Line Statements</h3>
+					<p>Statements in Python typically end with a new line. Python does, however, allow the use of the line continuation character (\) to denote that the line should continue. </p>
+					<h3>Quotation in Python</h3>
+					<p>Python accepts single ('), double (") and triple (''' or """) quotes to denote string literals, as long as the same type of quote starts and ends the string.</p>
+					<h3>Comments in Python</h3>
+					<p>A hash sign (#) that is not inside a string literal begins a comment. All characters after the # and up to the end of the physical line are part of the comment and the Python interpreter ignores them.</p>
+					<h3>Using Blank Lines</h3>
+					<p>A line containing only whitespace, possibly with a comment, is known as a blank line and Python totally ignores it.In an interactive interpreter session, you must enter an empty physical line to terminate a multiline statement.</p>
+					<hr>
+					<div>
+					<a href="<?= $this->url('python', ['action' => 'overview']) ?>" style="float: left" >Previous Page</a>
+					<a href="<?= $this->url('python', ['action' => 'variabletypes']) ?>" style="float: right" >Next Page</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

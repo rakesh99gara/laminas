@@ -1,0 +1,35 @@
+<?php
+	$title = 'Big data';
+	$this->headTitle($title);
+?>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="flex-row my-5">
+				<div class="card-body">
+					<?php
+						echo $this->partial('bigdata/bigdata/links');
+					?>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="card-cust flex-row my-5">
+				<div class="card-body">
+                	<h1 class="card-title text-center">Bid Data Overview</h1>
+					<br>
+					<p>The volume of data that one has to deal has exploded to unimaginable levels in the past decade, and at the same time, the price of data storage has systematically reduced. Private companies and research institutions capture terabytes of data about their users’ interactions, business, social media, and also sensors from devices such as mobile phones and automobiles. The challenge of this era is to make sense of this sea of data. This is where big data analytics comes into picture.</p>
+					<p>Big Data Analytics largely involves collecting data from different sources, munge it in a way that it becomes available to be consumed by analysts and finally deliver data products useful to the organization business.</p>
+					<p>The process of converting large amounts of unstructured raw data, retrieved from different sources to a data product useful for organizations forms the core of Big Data Analytics.</p>
+					<hr>
+					<div>
+						<a href="<?= $this->url('bigdata', ['action' => 'methodology']) ?>" style="float: right;" >Next Page</a>
+						
+					
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

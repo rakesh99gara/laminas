@@ -1,0 +1,20 @@
+<?php
+// module/Album/view/album/album/delete.phtml:
+
+$title = 'Delete Todo';
+$url   = $this->url('todo', ['action' => 'delete', 'id' => $id]);
+
+$this->headTitle($title);
+?>
+<div class="delete-todo">
+    <h1><?= $this->escapeHtml($title) ?></h1>
+    <h4><?= $this->escapeHtml($todo->todo) ?></h4>
+    <p><?= $this->escapeHtml($todo->remarks) ?></h4>
+    <form action="<?= $url ?>" method="post">
+    <div class="form-group">
+        <input type="hidden" name="id" value="<?= (int) $todo->id ?>" />
+        <input type="submit" class="btn btn-danger" name="del" value="Yes" />
+        <input type="submit" class="btn btn-success" name="del" value="No" />
+    </div>
+    </form>
+</div>
